@@ -3,7 +3,7 @@ GeneraLink es una aplicación creada para fortalecer la conexión social y cultu
 
 La misión de GeneraLink es ofrecer un entorno digital inclusivo donde todas las personas, especialmente adultos mayores con poca familiaridad tecnológica, puedan relacionarse de manera sencilla y significativa. Por ello, la plataforma incorpora funciones adaptadas como interfaces claras, iconos de mayor tamaño, navegación sencilla y soporte guiado para que los adultos mayores puedan interactuar con confianza y sin barreras.
 
-Segmentos Objetivo
+# Segmentos Objetivo
 1 . Adultos Mayores (60+ años)
 Demográficos: Personas de 60 a 80 años, jubilados, residentes en zonas urbanas y semiurbanas.
 Conductuales: Usan esporádicamente WhatsApp o Facebook para comunicarse, pero presentan dificultades con nuevas plataformas.
@@ -15,7 +15,7 @@ Conductuales: Acostumbrados al uso intensivo de apps sociales (Instagram, WhatsA
 Necesidades: Aprender consejos prácticos y experiencias de vida que no se encuentran en el sistema educativo formal.
 Beneficios buscados: Conexión significativa con adultos, acceso a aprendizajes culturales y humanos, actividades dinámicas y seguras.
 
-Integrantes del proyecto:
+# Integrantes del proyecto:
 
 Correa Rodríguez Andrea Khristina Esther
 
