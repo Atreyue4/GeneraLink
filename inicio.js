@@ -408,7 +408,7 @@ function openConfirm(tipo) {
     // Acción de aceptar
     acceptBtn.onclick = () => {
       closeConfirm();
-      window.location.href = "logout.html"; // Redirige al logout
+      window.location.href = "index.html"; // Redirige al logout
     };
   }
 }
