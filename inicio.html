@@ -1,238 +1,355 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>App tipo Facebook con Chat</title>
+    <title>GeneraLink</title>
     <link rel="stylesheet" href="inicio.css" />
   </head>
   <body>
-    <div class="app-container">
-      <div class="main-content" role="main">
-        <header class="header">
-          <div class="header-left">
-            <div class="back-arrow" title="Volver">
-              <a href="index.html">&#8592;</a>
-            </div>
-            <input
-              type="search"
-              class="search-input"
-              placeholder="Buscar..."
-              aria-label="Buscar"
-            />
-          </div>
-          <div class="header-right">
-            <button class="icon-btn" title="Agregar">＋</button>
-            <button class="icon-btn" title="Cursos">🎓</button>
-            <button
-              class="icon-btn"
-              title="Notificaciones"
-              style="position: relative"
-            >
-              🔔
-              <span class="notification-badge"></span>
-            </button>
-            <img
-              class="profile-img"
-              src="https://randomuser.me/api/portraits/men/54.jpg"
-              alt="Perfil"
-            />
-          </div>
-        </header>
-        <section class="cards-container">
-          <!-- Contenido de las cards aquí (igual que antes) -->
-          <article
-            class="card"
-            role="region"
-            aria-label="Enseñando a tejer una manta"
-          >
-            <div class="card-header">
-              <img
-                src="https://randomuser.me/api/portraits/women/65.jpg"
-                alt="Foto de perfil de abuela"
-              />
-              <div class="card-title">Enseñando a tejer una manta</div>
-              <div class="card-header-icons">
-                <span class="yellow" title="Información importante">⚠️</span>
-                <span class="heart" title="Me gusta">❤</span>
-              </div>
-            </div>
-            <div
-              class="video-container"
-              role="button"
-              tabindex="0"
-              aria-label="Reproducir video de tejer manta"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80"
-                alt="Abuela tejiendo una manta"
-              />
-              <div class="play-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-              </div>
-            </div>
-            <button class="reply-btn" type="button" aria-label="Responder">
-              ← Responder
-            </button>
-          </article>
-          <article
-            class="card"
-            role="region"
-            aria-label="Tutorial para manejar celular"
-          >
-            <div class="card-header">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                alt="Foto de perfil de instructora"
-              />
-              <div class="card-title">
-                Te enseño a manejar tu celular con facilidad, para que puedas
-                hablar con tus seres queridos sin complicaciones
-              </div>
-              <div class="card-header-icons">
-                <span class="yellow" title="Información importante">⚠️</span>
-                <span class="heart" title="Me gusta">❤</span>
-              </div>
-            </div>
-            <div
-              class="video-container"
-              role="button"
-              tabindex="0"
-              aria-label="Video tutorial manejo celular"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-                alt="Mujer mostrando celular"
-              />
-              <div class="play-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-              </div>
-            </div>
-            <button class="reply-btn" type="button" aria-label="Responder">
-              ← Responder
-            </button>
-          </article>
-        </section>
+    <!-- ========================= -->
+    <!-- MOBILE MENU HAMBURGUESA -->
+    <!-- ========================= -->
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <button class="menu-back" onclick="closeMobileMenu()">← Volver</button>
+      <ul>
+        <li onclick="openPost()">Crear Post</li>
+        <li onclick="openPage('Talleres.html')">Talleres</li>
+        <li onclick="openPage('Notificaciones.html')">Notificaciones</li>
+        <li onclick="openPage('perfil.html')">Perfil</li>
+        <li onclick="openPage('preferencias.html')">Preferencias</li>
+        <li onclick="openPage('ayuda.html')">Ayuda</li>
+        <li onclick="openPage('tutorial.html')">Tutorial</li>
+        <li onclick="openPage('megusta.html')">Me gusta</li>
+        <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+        <li class="danger" onclick="openConfirm('delete')">Eliminar Cuenta</li>
+      </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="top-left">
+        <img
+          src="images/back.png"
+          alt="Atrás"
+          onclick="openPage('inicio.html')"
+          class="icon back"
+        />
+      </div>
+      <div class="search-area">
+        <img src="images/search.png" class="search-icon" />
+        <input id="searchInput" placeholder="Buscar..." oninput="search()" />
+        <select id="filterSelect" onchange="search()">
+          <option value="">Filtro</option>
+          <option value="musica">Música</option>
+          <option value="danza">Danza</option>
+          <option value="cocina">Cocina</option>
+          <option value="politica">Política</option>
+          <option value="historia">Historia</option>
+          <option value="deporte">Deporte</option>
+        </select>
       </div>
 
-      <aside class="sidebar" aria-label="Sección en vivo y chats">
-        <div class="live-section" aria-live="polite">
-          <div class="live-title">LIVE <span class="live-dot"></span></div>
-          <div class="live-host" role="listitem">
-            <div class="host-info">
-              <img
-                src="https://randomuser.me/api/portraits/women/67.jpg"
-                alt="Abril Valentina Torres"
-                class="host-img"
-              />
-              <div class="host-name">is hosting</div>
-            </div>
-            <div class="host-description">
-              HABLANDO DE LAS RECETAS DE MI ABUE
-            </div>
-            <a href="#" class="btn-ver" role="button" tabindex="0">VER</a>
+      <div class="top-actions">
+        <img
+          src="images/new-post.png"
+          alt="Nuevo post"
+          onclick="openPost()"
+          class="icon"
+        />
+        <img
+          src="images/school.png"
+          alt="Colegio"
+          onclick="openPage('Talleres.html')"
+          class="icon"
+        />
+        <img
+          src="images/notificaciones.png"
+          alt="Notificaciones"
+          onclick="openPage('Notificaciones.html')"
+          class="icon"
+        />
+        <img
+          id="menuHamburger"
+          src="images/menu.png"
+          class="hamburger icon"
+          onclick="openMobileMenu()"
+        />
+
+        <div class="profile-menu-container">
+          <img
+            src="images/perfil.png"
+            alt="perfil"
+            class="profile-icon"
+            onclick="toggleProfileMenu()"
+          />
+          <div id="profileMenu" class="profile-menu hidden">
+            <ul>
+              <li onclick="openPage('perfil.html')">Perfil</li>
+              <li onclick="openPage('preferencias.html')">Preferencias</li>
+              <li onclick="openPage('ayuda.html')">Ayuda</li>
+              <li onclick="openPage('tutorial.html')">Tutorial</li>
+              <li onclick="openPage('megusta.html')">Me gusta</li>
+              <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+              <li class="danger" onclick="openConfirm('delete')">
+                Eliminar Cuenta
+              </li>
+            </ul>
           </div>
-          <div class="live-host" role="listitem">
-            <div class="host-info">
-              <img
-                src="https://randomuser.me/api/portraits/men/60.jpg"
-                alt="Alejandro Ramírez López"
-                class="host-img"
-              />
-              <div class="host-name">is hosting</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <div class="feed">
+        <!-- POST 1 -->
+        <div class="post">
+          <div class="post-header">
+            <img src="images/post1.png" alt="" />
+            <div class="post-title-bar">
+              <span class="post-text">Clase completa de tejido en vivo</span>
+              <div class="spacer"></div>
+              <div class="icons">
+                <img
+                  src="images/translate.png"
+                  class="icon translate-icon"
+                  onclick="toggleLanguage(this)"
+                />
+                <img
+                  src="images/alert.png"
+                  class="icon alert-icon"
+                  onclick="openReport()"
+                />
+                <img
+                  src="images/like-empty.png"
+                  class="icon like-icon"
+                  onclick="likePost(this)"
+                />
+              </div>
             </div>
-            <div class="host-description">CONTANDO MIS EXPERIENCIAS</div>
-            <a href="#" class="btn-ver" role="button" tabindex="0">VER</a>
+          </div>
+          <div class="post-media">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/UgHsW72LrcA?si=ENwdf-SHMhAT84OG"
+                title="Video"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="post-actions">
+            <img src="images/reply.png" class="icon" />
+            <button class="btn-respond" onclick="toggleReply(this)">
+              Responder
+            </button>
+            <div class="spacer"></div>
+          </div>
+          <div class="reply-area hidden">
+            <textarea placeholder="Escribe tu respuesta..."></textarea>
+            <div class="reply-actions">
+              <button onclick="cancelReply(this)">Cancelar</button>
+              <button onclick="submitReply(this)">Responder</button>
+            </div>
+          </div>
+          <div class="comments"></div>
+        </div>
+        <!-- POST 2 (igual que POST 1) -->
+        <div class="post">
+          <div class="post-header">
+            <img src="images/post2.png" alt="" />
+            <div class="post-title-bar">
+              <span class="post-text"
+                >Aprende funciones básicas del celular</span
+              >
+              <div class="spacer"></div>
+              <div class="icons">
+                <img
+                  src="images/translate.png"
+                  class="icon translate-icon"
+                  onclick="toggleLanguage(this)"
+                />
+                <img
+                  src="images/alert.png"
+                  class="icon alert-icon"
+                  onclick="openReport()"
+                />
+                <img
+                  src="images/like-empty.png"
+                  class="icon like-icon"
+                  onclick="likePost(this)"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="post-media">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/2b9_AKEYNmg?si=CI3B7ylF6tXsWQUD"
+                title="Video"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+          <div class="post-actions">
+            <img src="images/reply.png" class="icon" />
+            <button class="btn-respond" onclick="toggleReply(this)">
+              Responder
+            </button>
+            <div class="spacer"></div>
+          </div>
+          <div class="reply-area hidden">
+            <textarea placeholder="Escribe tu respuesta..."></textarea>
+            <div class="reply-actions">
+              <button onclick="cancelReply(this)">Cancelar</button>
+              <button onclick="submitReply(this)">Responder</button>
+            </div>
+          </div>
+          <div class="comments"></div>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <div class="live-title">LIVE <span>●</span></div>
+          <div class="host-item">
+            <img src="images/live1.png" />
+            <div>
+              <small>is hosting</small>
+              <div>Abril Valentina Torres</div>
+              <button
+                class="btn-ver"
+                onclick="window.open('Live.html', '_self')"
+              >
+                VER
+              </button>
+            </div>
+          </div>
+          <div class="host-item">
+            <img src="images/live2.png" />
+            <div>
+              <small>is hosting</small>
+              <div>Alejandro Ramírez López</div>
+              <button
+                class="btn-ver"
+                onclick="window.open('Live.html', '_self')"
+              >
+                VER
+              </button>
+            </div>
           </div>
         </div>
 
-        <div
-          class="chat-toggle"
-          id="chatToggle"
-          aria-expanded="false"
-          role="button"
-          tabindex="0"
-          aria-label="Desplegar lista de chats"
-        >
-          <span class="chat-dot"></span> CHATS
-        </div>
-
-        <div
-          class="chat-list"
-          id="chatList"
-          role="list"
-          aria-label="Lista de chats"
-        >
-          <!-- Usuarios de ejemplo -->
-          <div
-            class="chat-list-item"
-            tabindex="0"
-            role="listitem"
-            data-userid="1"
-            aria-selected="false"
-          >
-            <img
-              src="https://randomuser.me/api/portraits/men/32.jpg"
-              alt="Juan Pérez"
-            />
-            <div class="name">Juan Pérez</div>
+        <div class="sidebar-card">
+          <h3>CHATS</h3>
+          <div class="chat-item" onclick="openChatConversation('Abril Torres')">
+            <img src="images/chat1.png" />
+            <div>
+              <strong>Abril Torres</strong><br />
+              <small>Escribiendo...</small>
+            </div>
           </div>
           <div
-            class="chat-list-item"
-            tabindex="0"
-            role="listitem"
-            data-userid="2"
-            aria-selected="false"
+            class="chat-item"
+            onclick="openChatConversation('Alejandro López')"
           >
-            <img
-              src="https://randomuser.me/api/portraits/women/10.jpg"
-              alt="María López"
-            />
-            <div class="name">María López</div>
-          </div>
-          <div
-            class="chat-list-item"
-            tabindex="0"
-            role="listitem"
-            data-userid="3"
-            aria-selected="false"
-          >
-            <img
-              src="https://randomuser.me/api/portraits/men/98.jpg"
-              alt="Carlos Díaz"
-            />
-            <div class="name">Carlos Díaz</div>
+            <img src="images/chat2.png" />
+            <div>
+              <strong>Alejandro López</strong><br />
+              <small>Visto hace 2 min</small>
+            </div>
           </div>
         </div>
       </aside>
     </div>
 
-    <!-- Chat panel dinámico -->
-    <div
-      class="chat-panel"
-      id="chatPanel"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Chat activo"
-    >
-      <div class="chat-header">
-        <div id="chatUserName">Nombre usuario</div>
-        <button class="close-btn" aria-label="Cerrar chat" id="chatCloseBtn">
-          &times;
-        </button>
-      </div>
-      <div class="chat-messages" id="chatMessages" tabindex="0">
-        <!-- Mensajes dinámicos aquí -->
-      </div>
-      <div class="chat-input-area">
+    <!-- MODALES -->
+    <!-- Crear Post -->
+    <div id="postModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Crear Post</h3>
+        <textarea id="postText" placeholder="Escribe algo..."></textarea>
         <input
-          type="text"
-          id="chatInput"
-          class="chat-input"
-          placeholder="Escribe un mensaje..."
-          aria-label="Área para escribir mensaje"
+          type="file"
+          id="postImage"
+          accept="image/*"
+          onchange="previewImage()"
         />
-        <button class="send-btn" id="sendBtn" disabled>Enviar</button>
+        <div id="imagePreview" class="image-preview hidden"></div>
+        <div class="modal-actions">
+          <button onclick="closePost()">Cerrar</button>
+          <button onclick="post()">Publicar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reportar Post -->
+    <div id="reportModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Reportar Post</h3>
+        <textarea
+          id="reportText"
+          placeholder="Indica el motivo del reporte..."
+        ></textarea>
+        <div class="modal-actions">
+          <button onclick="closeReport()">Cerrar</button>
+          <button onclick="submitReport()">Reportar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmación Eliminar/Cerrar Sesión -->
+    <div class="confirm hidden">
+      <div class="confirm-content">
+        <h3 class="confirm-title"></h3>
+        <div class="confirm-actions">
+          <button class="confirm-accept">Aceptar</button>
+          <button class="confirm-cancel" onclick="closeConfirm()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <img src="images/chat.png" id="chatBubble" onclick="openChat()" />
+
+    <!-- CHAT PANEL -->
+    <div id="chatPanel">
+      <div id="chatHeader">
+        <div id="chatTitle">Chats</div>
+        <img src="images/close.png" onclick="closeChat()" class="icon" />
+      </div>
+      <div id="chatListPanel">
+        <div
+          class="chat-list-row"
+          onclick="openChatConversation('Abril Torres')"
+        >
+          <img src="images/chat1.png" />
+          <div>
+            <strong>Abril Torres</strong><br />
+            <small id="status-abril">En línea</small>
+          </div>
+        </div>
+        <div
+          class="chat-list-row"
+          onclick="openChatConversation('Alejandro López')"
+        >
+          <img src="images/chat2.png" />
+          <div>
+            <strong>Alejandro López</strong><br />
+            <small id="status-alejandro">Visto hace 2 min</small>
+          </div>
+        </div>
+      </div>
+      <div id="chatConversation">
+        <button id="chatBackBtn" onclick="backToChatList()">← Volver</button>
+        <div id="chatBox"></div>
+        <div id="chatInputArea">
+          <input id="chatMessage" placeholder="Escribe un mensaje..." />
+          <button onclick="sendMessage()">Enviar</button>
+        </div>
       </div>
     </div>
 
