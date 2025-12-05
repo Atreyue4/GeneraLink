@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pantalla Principal - Mock</title>
-    <link rel="stylesheet" href="perfil.css" />
+    <link rel="stylesheet" href="talleres.css" />
     <link rel="stylesheet" href="inicio.css" />
   </head>
   <body>
@@ -15,7 +15,7 @@
       <button class="menu-back" onclick="closeMobileMenu()">← Volver</button>
       <ul>
         <li onclick="openPost()">Crear Post</li>
-        <li onclick="openPage('Taller.html')">Talleres</li>
+        <li onclick="openPage('Talleres.html')">Talleres</li>
         <li onclick="openPage('Notificaciones.html')">Notificaciones</li>
         <li onclick="openPage('perfil.html')">Perfil</li>
         <li onclick="openPage('preferencias.html')">Preferencias</li>
@@ -61,7 +61,7 @@
         <img
           src="images/school.png"
           alt="Colegio"
-          onclick="openPage('Taller.html')"
+          onclick="openPage('Talleres.html')"
           class="icon"
         />
         <img
@@ -134,49 +134,78 @@
         </div>
       </div>
     </div>
-    <!-- =============== CONTENIDO DEL PERFIL =============== -->
-    <div class="perfil-container">
-      <div class="perfil-card">
-        <img id="perfilFoto" src="images/perfil.png" class="perfil-foto" />
-        <h2 id="perfilNombre">Nombre de Usuario</h2>
-      </div>
+    <div class="top-title">TALLERES</div>
 
-      <!-- DESCRIPCIÓN EN UN CUADRO BLANCO FUERA -->
-      <div class="perfil-descripcion-box">
-        <p id="perfilBio">Aquí aparecerá tu descripción.</p>
-      </div>
-
-      <!-- BOTONES -->
-      <div class="perfil-botones">
-        <button class="btn-edit" onclick="abrirEditar()">EDIT</button>
-        <button class="btn-pref" onclick="openPage('preferencias.html')">
-          PREFERENCIAS
-        </button>
-      </div>
-    </div>
-
-    <!-- =============== MODAL EDITAR PERFIL =============== -->
-    <div id="modalEditar" class="modal hidden">
-      <div class="modal-content perfil-modal">
-        <h3>Editar Perfil</h3>
-
-        <label>Nombre</label>
-        <input type="text" id="editarNombre" />
-
-        <label>Descripción</label>
-        <textarea id="editarBio"></textarea>
-
-        <label>Foto de Perfil</label>
-        <input type="file" id="editarFoto" accept="image/*" />
-
-        <div class="modal-actions">
-          <button onclick="cerrarEditar()">Cerrar</button>
-          <button onclick="guardarCambios()">Guardar</button>
+    <main class="talleres-container">
+      <div class="taller-card">
+        <h3 class="taller-title">Música</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/kXYiU_JCYtU"
+            allowfullscreen
+          ></iframe>
         </div>
+        <p>Aprende ritmos básicos y desarrolla coordinación musical.</p>
       </div>
-    </div>
 
-    <script src="perfil.js"></script>
+      <div class="taller-card">
+        <h3 class="taller-title">Danza</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/1xYTs1-gX1U"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>Rutinas simples para moverte, ejercitarte y divertirte.</p>
+      </div>
+
+      <div class="taller-card">
+        <h3 class="taller-title">Cocina</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>Recetas fáciles paso a paso para preparar en casa.</p>
+      </div>
+
+      <div class="taller-card">
+        <h3 class="taller-title">Política</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/xU4ZV6L4NBg"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>
+          Comprende tus derechos, participación ciudadana e información útil.
+        </p>
+      </div>
+
+      <div class="taller-card">
+        <h3 class="taller-title">Historia</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/FTQbiNvZqaY"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>Aprende sobre sucesos importantes y la memoria colectiva.</p>
+      </div>
+
+      <div class="taller-card">
+        <h3 class="taller-title">Deporte</h3>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/1skBf6h2ksI"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p>Ejercicios básicos y rutinas saludables para tu bienestar.</p>
+      </div>
+    </main>
+
     <script src="ventanas.js"></script>
   </body>
 </html>
