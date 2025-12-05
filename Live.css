@@ -1,302 +1,301 @@
 /* TITULO */
 .top-title {
-    margin-top: 40px;
-    margin-bottom: 30px;
-    padding-left: 40px;
-    font-size: 34px;
-    font-weight: 700;
-    color: white;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding-left: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: white;
+}
+@media (max-width: 680px) {
+  .top-title {
+    padding-left: 20px;
+    font-size: 26px;
   }
-  @media (max-width: 680px) {
-    .top-title {
-      padding-left: 20px;
-      font-size: 26px;
-    }
-  }
-  /* =========================================================
+}
+/* =========================================================
      CONTENEDOR PRINCIPAL DEL LIVE
   ========================================================= */
-  .live-screen {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 40px 40px;
-    max-width: 1500px;
-    margin: auto;
-    transition: all 0.3s ease;
-  }
-  
-  /* COLUMNA IZQUIERDA (HOST + VIDEO) */
-  .left-live {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex: 3;
-  }
-  
-  /* =========================================================
+.live-screen {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 40px 40px;
+  max-width: 1500px;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+
+/* COLUMNA IZQUIERDA (HOST + VIDEO) */
+.left-live {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 3;
+}
+
+/* =========================================================
        PERFIL DEL HOST (DEBAJO DEL TÍTULO, YA NO ABSOLUTO)
     ========================================================= */
-  .host-profile {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  
-    background: rgba(0, 0, 0, 0.45);
-    padding: 14px 18px;
-    border-radius: 14px;
-    backdrop-filter: blur(6px);
-  
-    /* IMPORTANTE → En flujo normal */
-    position: relative;
-    margin-top: 15px;
-  }
-  
-  .host-profile img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-  }
-  
-  .host-info h3 {
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .live-badge {
-    color: #ff4757;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  /* =========================================================
+.host-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: rgba(0, 0, 0, 0.45);
+  padding: 14px 18px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+
+  /* IMPORTANTE → En flujo normal */
+  position: relative;
+  margin-top: 15px;
+}
+
+.host-profile img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.host-info h3 {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.live-badge {
+  color: #ff4757;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* =========================================================
            VIDEO (IMAGEN GRANDE DEL LIVE)
     ========================================================= */
-  .live-video {
-    background: linear-gradient(135deg, #111 0%, #333 100%);
-    border-radius: 18px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .live-video:hover {
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  }
-  
-  .live-video img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  
-  .live-video img:hover {
-    transform: scale(1.02);
-  }
-  
-  /* =========================================================
+.live-video {
+  background: linear-gradient(135deg, #111 0%, #333 100%);
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.live-video:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.live-video img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.live-video img:hover {
+  transform: scale(1.02);
+}
+
+/* =========================================================
            CHAT A LA DERECHA
     ========================================================= */
-  .live-chat-box {
-    flex: 1.2;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 18px;
-    border-radius: 14px;
-    height: 650px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-  }
-  
-  .live-chat-box:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-  
-  /* TÍTULO DEL CHAT */
-  .chat-title {
-    color: #fff;
-    font-size: 22px;
-    margin-bottom: 12px;
-    font-weight: 700;
-    text-align: left;
-  }
-  
-  /* =========================================================
+.live-chat-box {
+  flex: 1.2;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 18px;
+  border-radius: 14px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.live-chat-box:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* TÍTULO DEL CHAT */
+.chat-title {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* =========================================================
            MENSAJES DEL CHAT
     ========================================================= */
-  .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    padding: 14px;
-    scroll-behavior: smooth;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
-  }
-  
-  .chat-messages::-webkit-scrollbar {
-    width: 6px;
-  }
-  .chat-messages::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 3px;
-  }
-  
-  .msg {
-    padding: 8px 2px;
-    margin-bottom: 6px;
-    font-size: 15px;
-    color: #f1f1f1;
-    line-height: 1.3;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .timestamp {
-    font-size: 12px;
-    color: #ccc;
-    margin-left: 10px;
-  }
-  
-  .username {
-    font-weight: 700;
-  }
-  
-  /* Colores de usuarios */
-  .user-1 .username {
-    color: #9cd3ff;
-  }
-  .user-2 .username {
-    color: #ffbde8;
-  }
-  .user-3 .username {
-    color: #c1ffcf;
-  }
-  .user-4 .username {
-    color: #ffdfae;
-  }
-  .user-5 .username {
-    color: #e2c0ff;
-  }
-  .user-self .username {
-    color: #62d4ff;
-  }
-  
-  /* =========================================================
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 14px;
+  scroll-behavior: smooth;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+}
+
+.msg {
+  padding: 8px 2px;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #f1f1f1;
+  line-height: 1.3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #ccc;
+  margin-left: 10px;
+}
+
+.username {
+  font-weight: 700;
+}
+
+/* Colores de usuarios */
+.user-1 .username {
+  color: #9cd3ff;
+}
+.user-2 .username {
+  color: #ffbde8;
+}
+.user-3 .username {
+  color: #c1ffcf;
+}
+.user-4 .username {
+  color: #ffdfae;
+}
+.user-5 .username {
+  color: #e2c0ff;
+}
+.user-self .username {
+  color: #62d4ff;
+}
+
+/* =========================================================
            INPUT DEL CHAT
     ========================================================= */
-  .chat-input-area {
-    display: flex;
-    gap: 10px;
-    margin-top: 12px;
-  }
-  
-  .chat-input-area input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.9);
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .chat-input-area input:focus {
-    border-color: #00a2ff;
-  }
-  
-  .chat-input-area button {
-    width: 120px;
-    padding: 12px 16px;
-    background: linear-gradient(135deg, #00a2ff 0%, #0088d4 100%);
-    color: white;
-    font-weight: 700;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .chat-input-area button:hover,
-  .chat-input-area button:focus {
-    background: linear-gradient(135deg, #0088d4 0%, #006bb3 100%);
-    transform: translateY(-2px);
-  }
-  
-  /* =========================================================
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.chat-input-area input:focus {
+  border-color: #00a2ff;
+}
+
+.chat-input-area button {
+  width: 120px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #00a2ff 0%, #0088d4 100%);
+  color: white;
+  font-weight: 700;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chat-input-area button:hover,
+.chat-input-area button:focus {
+  background: linear-gradient(135deg, #0088d4 0%, #006bb3 100%);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
            RESPONSIVE — LAPTOP / TABLET
     ========================================================= */
-  @media (max-width: 1024px) {
-    .live-screen {
-      gap: 20px;
-      padding: 90px 30px;
-    }
-  
-    .live-video {
-      flex: 2.5;
-    }
-  
-    .live-chat-box {
-      flex: 1;
-    }
+@media (max-width: 1024px) {
+  .live-screen {
+    gap: 20px;
+    padding: 90px 30px;
   }
-  
-  /* =========================================================
+
+  .live-video {
+    flex: 2.5;
+  }
+
+  .live-chat-box {
+    flex: 1;
+  }
+}
+
+/* =========================================================
            RESPONSIVE — CELULAR
     ========================================================= */
-  @media (max-width: 900px) {
-    .live-screen {
-      flex-direction: column;
-      padding: 90px 20px;
-    }
-  
-    .live-video {
-      width: 100%;
-    }
-  
-    .live-chat-box {
-      width: 100%;
-      height: 500px;
-    }
-  
-    .chat-title {
-      text-align: center;
-    }
+@media (max-width: 900px) {
+  .live-screen {
+    flex-direction: column;
+    padding: 90px 20px;
   }
-  
-  /* Extra small screens */
-  @media (max-width: 550px) {
-    .host-profile {
-      padding: 10px 12px;
-    }
-  
-    .host-profile img {
-      width: 45px;
-      height: 45px;
-    }
-  
-    .host-info h3 {
-      font-size: 17px;
-    }
-  
-    .chat-input-area button {
-      width: 90px;
-    }
-  
-    .msg {
-      font-size: 14px;
-    }
+
+  .live-video {
+    width: 100%;
   }
-  
+
+  .live-chat-box {
+    width: 100%;
+    height: 500px;
+  }
+
+  .chat-title {
+    text-align: center;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 550px) {
+  .host-profile {
+    padding: 10px 12px;
+  }
+
+  .host-profile img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .host-info h3 {
+    font-size: 17px;
+  }
+
+  .chat-input-area button {
+    width: 90px;
+  }
+
+  .msg {
+    font-size: 14px;
+  }
+}
