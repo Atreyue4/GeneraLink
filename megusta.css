@@ -1,0 +1,164 @@
+.top-title {
+  margin-top: 60px; /* deja espacio para la topbar */
+  margin-bottom: 25px;
+  padding-left: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: white;
+  text-align: left;
+}
+@media (max-width: 680px) {
+  .top-title {
+    margin-top: 40px;
+    padding-left: 20px;
+    font-size: 26px;
+  }
+}
+
+/* ME GUSTA - Carrusel horizontal de posts */
+.megusta-main {
+  margin: 90px auto 60px;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.carousel-btn {
+  width: 54px;
+  height: 54px;
+  font-size: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: 0.2s ease;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.07);
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%; /* MÁS NATURAL */
+  max-width: 1050px; /* equilibrio perfecto */
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* cada post debe mantener el estilo de tarjeta que usas */
+.card {
+  min-width: 380px; /* MÁS GRANDE */
+  max-width: 380px;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.post-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.post-header img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.post-title-bar {
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.post-text {
+  font-size: 14px;
+}
+
+.post-media {
+  margin-top: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.reply-area {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.reply-area textarea {
+  width: 100%;
+  min-height: 60px;
+}
+
+@media (max-width: 980px) {
+  .card {
+    min-width: 320px;
+    max-width: 320px;
+  }
+  .carousel-viewport {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 680px) {
+  .megusta-main {
+    margin-top: 20px;
+    gap: 12px;
+    flex-direction: column;
+  }
+  .carousel-btn {
+    display: none;
+  }
+  .carousel-viewport {
+    max-width: 100%;
+  }
+  .card {
+    min-width: 92%;
+    max-width: 92%;
+  }
+}

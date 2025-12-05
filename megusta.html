@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pantalla Principal - Mock</title>
+    <link rel="stylesheet" href="megusta.css" />
+    <link rel="stylesheet" href="inicio.css" />
+  </head>
+  <body>
+    <!-- ========================= -->
+    <!-- MOBILE MENU HAMBURGUESA -->
+    <!-- ========================= -->
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <button class="menu-back" onclick="closeMobileMenu()">← Volver</button>
+      <ul>
+        <li onclick="openPost()">Crear Post</li>
+        <li onclick="openPage('Talleres.html')">Talleres</li>
+        <li onclick="openPage('Notificaciones.html')">Notificaciones</li>
+        <li onclick="openPage('perfil.html')">Perfil</li>
+        <li onclick="openPage('preferencias.html')">Preferencias</li>
+        <li onclick="openPage('ayuda.html')">Ayuda</li>
+        <li onclick="openPage('tutorial.html')">Tutorial</li>
+        <li onclick="openPage('megusta.html')">Me gusta</li>
+        <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+        <li class="danger" onclick="openConfirm('delete')">Eliminar Cuenta</li>
+      </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="top-left">
+        <img
+          src="images/back.png"
+          alt="Atrás"
+          onclick="openPage('inicio.html')"
+          class="icon back"
+        />
+      </div>
+      <div class="search-area">
+        <img src="images/search.png" class="search-icon" />
+        <input id="searchInput" placeholder="Buscar..." oninput="search()" />
+        <select id="filterSelect" onchange="search()">
+          <option value="">Filtro</option>
+          <option value="musica">Música</option>
+          <option value="danza">Danza</option>
+          <option value="cocina">Cocina</option>
+          <option value="politica">Política</option>
+          <option value="historia">Historia</option>
+          <option value="deporte">Deporte</option>
+        </select>
+      </div>
+
+      <div class="top-actions">
+        <img
+          src="images/new-post.png"
+          alt="Nuevo post"
+          onclick="openPost()"
+          class="icon"
+        />
+        <img
+          src="images/school.png"
+          alt="Colegio"
+          onclick="openPage('Talleres.html')"
+          class="icon"
+        />
+        <img
+          src="images/notificaciones.png"
+          alt="Notificaciones"
+          onclick="openPage('Notificaciones.html')"
+          class="icon"
+        />
+        <img
+          id="menuHamburger"
+          src="images/menu.png"
+          class="hamburger icon"
+          onclick="openMobileMenu()"
+        />
+
+        <div class="profile-menu-container">
+          <img
+            src="images/perfil.png"
+            alt="perfil"
+            class="profile-icon"
+            onclick="toggleProfileMenu()"
+          />
+          <div id="profileMenu" class="profile-menu hidden">
+            <ul>
+              <li onclick="openPage('perfil.html')">Perfil</li>
+              <li onclick="openPage('preferencias.html')">Preferencias</li>
+              <li onclick="openPage('ayuda.html')">Ayuda</li>
+              <li onclick="openPage('tutorial.html')">Tutorial</li>
+              <li onclick="openPage('megusta.html')">Me gusta</li>
+              <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+              <li class="danger" onclick="openConfirm('delete')">
+                Eliminar Cuenta
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <!-- MODALES -->
+      <!-- Crear Post -->
+      <div id="postModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Crear Post</h3>
+          <textarea id="postText" placeholder="Escribe algo..."></textarea>
+          <input
+            type="file"
+            id="postImage"
+            accept="image/*"
+            onchange="previewImage()"
+          />
+          <div id="imagePreview" class="image-preview hidden"></div>
+          <div class="modal-actions">
+            <button onclick="closePost()">Cerrar</button>
+            <button onclick="post()">Publicar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Confirmación Eliminar/Cerrar Sesión -->
+      <div class="confirm hidden">
+        <div class="confirm-content">
+          <h3 class="confirm-title"></h3>
+          <div class="confirm-actions">
+            <button class="confirm-accept">Aceptar</button>
+            <button class="confirm-cancel" onclick="closeConfirm()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="top-title">ME GUSTA</div>
+
+    <!-- CARRUSEL DE POSTS (4 posts) -->
+    <main class="megusta-main">
+      <button
+        class="carousel-btn left"
+        id="btnLeft"
+        aria-label="Mover izquierda"
+      >
+        ‹
+      </button>
+
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- POST 1 -->
+          <article class="post card">
+            <div class="post-header">
+              <img src="images/post1.png" alt="" />
+              <div class="post-title-bar">
+                <span class="post-text">Clase completa de tejido en vivo</span>
+                <div class="spacer"></div>
+                <div class="icons">
+                  <img
+                    src="images/translate.png"
+                    class="icon translate-icon"
+                    onclick="toggleLanguage(this)"
+                  />
+                  <img
+                    src="images/alert.png"
+                    class="icon alert-icon"
+                    onclick="openReport()"
+                  />
+                  <img
+                    src="images/like-empty.png"
+                    class="icon like-icon"
+                    onclick="likePost(this)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="post-media">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/UgHsW72LrcA?si=ENwdf-SHMhAT84OG"
+                  title="Video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="post-actions">
+              <img src="images/reply.png" class="icon" />
+              <button class="btn-respond" onclick="toggleReply(this)">
+                Responder
+              </button>
+              <div class="spacer"></div>
+            </div>
+
+            <div class="reply-area hidden">
+              <textarea placeholder="Escribe tu respuesta..."></textarea>
+              <div class="reply-actions">
+                <button onclick="cancelReply(this)">Cancelar</button>
+                <button onclick="submitReply(this)">Responder</button>
+              </div>
+            </div>
+
+            <div class="comments"></div>
+          </article>
+
+          <!-- POST 2 -->
+          <article class="post card">
+            <div class="post-header">
+              <img src="images/post2.png" alt="" />
+              <div class="post-title-bar">
+                <span class="post-text"
+                  >Aprende funciones básicas del celular</span
+                >
+                <div class="spacer"></div>
+                <div class="icons">
+                  <img
+                    src="images/translate.png"
+                    class="icon translate-icon"
+                    onclick="toggleLanguage(this)"
+                  />
+                  <img
+                    src="images/alert.png"
+                    class="icon alert-icon"
+                    onclick="openReport()"
+                  />
+                  <img
+                    src="images/like-empty.png"
+                    class="icon like-icon"
+                    onclick="likePost(this)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="post-media">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/2b9_AKEYNmg?si=CI3B7ylF6tXsWQUD"
+                  title="Video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="post-actions">
+              <img src="images/reply.png" class="icon" />
+              <button class="btn-respond" onclick="toggleReply(this)">
+                Responder
+              </button>
+              <div class="spacer"></div>
+            </div>
+
+            <div class="reply-area hidden">
+              <textarea placeholder="Escribe tu respuesta..."></textarea>
+              <div class="reply-actions">
+                <button onclick="cancelReply(this)">Cancelar</button>
+                <button onclick="submitReply(this)">Responder</button>
+              </div>
+            </div>
+
+            <div class="comments"></div>
+          </article>
+
+          <!-- POST 3 -->
+          <article class="post card">
+            <div class="post-header">
+              <img src="images/post3.png" alt="" />
+              <div class="post-title-bar">
+                <span class="post-text">Técnicas básicas de cocina</span>
+                <div class="spacer"></div>
+                <div class="icons">
+                  <img
+                    src="images/translate.png"
+                    class="icon translate-icon"
+                    onclick="toggleLanguage(this)"
+                  />
+                  <img
+                    src="images/alert.png"
+                    class="icon alert-icon"
+                    onclick="openReport()"
+                  />
+                  <img
+                    src="images/like-empty.png"
+                    class="icon like-icon"
+                    onclick="likePost(this)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="post-media">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="post-actions">
+              <img src="images/reply.png" class="icon" />
+              <button class="btn-respond" onclick="toggleReply(this)">
+                Responder
+              </button>
+              <div class="spacer"></div>
+            </div>
+
+            <div class="reply-area hidden">
+              <textarea placeholder="Escribe tu respuesta..."></textarea>
+              <div class="reply-actions">
+                <button onclick="cancelReply(this)">Cancelar</button>
+                <button onclick="submitReply(this)">Responder</button>
+              </div>
+            </div>
+
+            <div class="comments"></div>
+          </article>
+
+          <!-- POST 4 -->
+          <article class="post card">
+            <div class="post-header">
+              <img src="images/post4.png" alt="" />
+              <div class="post-title-bar">
+                <span class="post-text">Historia local y memoria</span>
+                <div class="spacer"></div>
+                <div class="icons">
+                  <img
+                    src="images/translate.png"
+                    class="icon translate-icon"
+                    onclick="toggleLanguage(this)"
+                  />
+                  <img
+                    src="images/alert.png"
+                    class="icon alert-icon"
+                    onclick="openReport()"
+                  />
+                  <img
+                    src="images/like-empty.png"
+                    class="icon like-icon"
+                    onclick="likePost(this)"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="post-media">
+              <div class="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/FTQbiNvZqaY"
+                  title="Video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="post-actions">
+              <img src="images/reply.png" class="icon" />
+              <button class="btn-respond" onclick="toggleReply(this)">
+                Responder
+              </button>
+              <div class="spacer"></div>
+            </div>
+
+            <div class="reply-area hidden">
+              <textarea placeholder="Escribe tu respuesta..."></textarea>
+              <div class="reply-actions">
+                <button onclick="cancelReply(this)">Cancelar</button>
+                <button onclick="submitReply(this)">Responder</button>
+              </div>
+            </div>
+
+            <div class="comments"></div>
+          </article>
+        </div>
+        <!-- /carousel-track -->
+      </div>
+      <!-- /carousel-viewport -->
+
+      <button
+        class="carousel-btn right"
+        id="btnRight"
+        aria-label="Mover derecha"
+      >
+        ›
+      </button>
+    </main>
+
+    <script src="megusta.js"></script>
+    <script src="ventanas.js"></script>
+  </body>
+</html>
