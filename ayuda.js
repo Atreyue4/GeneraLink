@@ -41,7 +41,7 @@ function toggleMic() {
     resultBox.classList.add("result-ready");
     resultBox.innerHTML = `
       <div class="result-content" style="width:100%;">
-        <p style="margin-top:10px;color:#333;font-weight:600;">Para ver talleres y poder aprender mas sobre la cultura 
+        <p style="margin-top:10px;color:#fffff;font-weight:600;">Para ver talleres y poder aprender mas sobre la cultura 
         juvenil entre otras cosas de aprendizaje de cultura se le 
         recomienda entrar con uno de los “iconos” principales
         el cual seria:  </p>
