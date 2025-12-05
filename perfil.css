@@ -1,0 +1,239 @@
+/* ============================= */
+/* CONTENEDOR */
+/* ============================= */
+
+.perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+/* ============================= */
+/* TARJETA DE FOTO + NOMBRE */
+/* ============================= */
+
+.perfil-card {
+  background: url("images/fondo.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+/* Overlay */
+.perfil-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(1px);
+}
+
+.perfil-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================= */
+/* FOTO */
+/* ============================= */
+
+.perfil-foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  margin-bottom: 12px;
+  background: white;
+}
+
+/* ============================= */
+/* NOMBRE */
+/* ============================= */
+
+.perfil-card h2 {
+  color: black;
+  margin-bottom: 2px;
+  font-weight: 700;
+}
+
+/* ============================= */
+/* CUADRO BLANCO DE DESCRIPCIÓN */
+/* ============================= */
+
+.perfil-descripcion-box {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.perfil-descripcion-box p {
+  color: #333;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* ============================= */
+/* BOTONES */
+/* ============================= */
+
+.perfil-botones {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn-edit,
+.btn-pref {
+  background: var(--accent);
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.2s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-edit:hover,
+.btn-pref:hover {
+  opacity: 0.85;
+}
+
+/* ============================= */
+/* MODAL EDITAR */
+/* ============================= */
+
+.perfil-modal {
+  max-width: 420px !important;
+}
+
+.perfil-modal h3 {
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.perfil-modal label {
+  color: #000;
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+  text-align: left;
+}
+
+.perfil-modal input,
+.perfil-modal textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 10px;
+  background: #fff;
+  color: #333;
+}
+
+.modal-actions button:first-child {
+  background: black !important;
+  color: white !important;
+}
+
+.modal-actions button:last-child {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 99999;
+}
+/* ============================= */
+/* RESPONSIVE - PERFIL */
+/* ============================= */
+
+@media (max-width: 600px) {
+  /* Contenedor */
+  .perfil-container {
+    padding: 20px;
+  }
+
+  /* Tarjeta del perfil */
+  .perfil-card {
+    padding: 18px;
+    border-radius: 16px;
+    max-width: 90%;
+    margin-bottom: 16px;
+  }
+
+  /* Foto más pequeña */
+  .perfil-foto {
+    width: 90px;
+    height: 90px;
+    border-width: 2px;
+    margin-bottom: 10px;
+  }
+
+  /* Nombre más pequeño */
+  .perfil-card h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  /* Cuadro blanco de descripción */
+  .perfil-descripcion-box {
+    max-width: 90%;
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .perfil-descripcion-box p {
+    font-size: 14px;
+  }
+
+  /* Botones más compactos */
+  .perfil-botones {
+    gap: 12px;
+  }
+
+  .btn-edit,
+  .btn-pref {
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+  /* Modal ajustar tamaño */
+  .perfil-modal {
+    max-width: 92% !important;
+    padding: 10px !important;
+  }
+
+  .perfil-modal input,
+  .perfil-modal textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .modal-actions button {
+    padding: 8px 14px !important;
+    font-size: 14px;
+  }
+}
