@@ -1,0 +1,94 @@
+/* TITULO */
+.top-title {
+    margin-top: 110px;
+    margin-bottom: 30px;
+    padding-left: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    color: white;
+  }
+  
+  /* CONTENEDOR */
+  .noti-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 40px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  
+  /* TARJETA */
+  .noti-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease;
+  }
+  
+  .noti-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* ICONO */
+  .noti-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  /* INFO */
+  .noti-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .noti-text {
+    margin: 0;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.35;
+  }
+  
+  .noti-text strong {
+    color: var(--accent);
+  }
+  
+  .noti-time {
+    margin-top: 6px;
+    font-size: 13px;
+    color: #bbb;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .top-title {
+      padding-left: 20px;
+      font-size: 26px;
+    }
+  
+    .noti-container {
+      padding: 0 20px 50px;
+    }
+  
+    .noti-card {
+      padding: 16px;
+      gap: 14px;
+    }
+  
+    .noti-icon {
+      width: 48px;
+      height: 48px;
+    }
+  
+    .noti-text {
+      font-size: 14px;
+    }
+  }
+  
