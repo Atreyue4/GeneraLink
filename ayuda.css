@@ -1,0 +1,197 @@
+/* ======================================= */
+/*            PANTALLA AYUDA               */
+/* ======================================= */
+
+/* ====== LAYOUT PRINCIPAL EN FLEX ====== */
+.ayuda-flex {
+  margin-top: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 90px; /* Más separación para laptop */
+  padding: 20px;
+}
+
+/* ======================================= */
+/*           MICRÓFONO GIGANTE             */
+/* ======================================= */
+
+.ayuda-mic-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 340px; /* ANTES 260 */
+}
+
+/* Zona total */
+.mic-zone {
+  position: relative;
+  width: 300px; /* ANTES 220 */
+  height: 300px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+/* Ondas */
+.mic-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid rgba(184, 55, 72, 0.18); /* Más grueso */
+  transform: scale(0.55);
+  opacity: 0;
+}
+
+/* Activación */
+.mic-zone.listening .ring-outer {
+  animation: waveAnim 1.8s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-delay: 0s;
+}
+.mic-zone.listening .ring-middle {
+  animation: waveAnim 1.8s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-delay: 0.4s;
+}
+.mic-zone.listening .ring-inner {
+  animation: waveAnim 1.8s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation-delay: 0.8s;
+}
+
+/* Núcleo del micrófono */
+.mic-core {
+  width: 190px; /* ANTES 140 */
+  height: 190px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icono del mic */
+.mic-icon {
+  width: 110px; /* ANTES 80 */
+  height: 110px;
+}
+
+/* Texto */
+.mic-hint {
+  color: #dcdcdc;
+  font-size: 17px;
+  margin-top: 15px;
+}
+
+/* ======================================= */
+/*          CUADRO DE RESULTADO            */
+/* ======================================= */
+
+.ayuda-result-box {
+  flex: 1;
+  min-width: 420px; /* ANTES 350 */
+  max-width: 700px; /* ANTES 550 */
+  min-height: 260px; /* ANTES 200 */
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+  padding: 35px; /* ANTES 28 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ayuda-result-box.result-ready img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.result-placeholder p {
+  color: #333;
+  font-size: 17px;
+  text-align: center;
+}
+
+/* ======================================= */
+/*             ANIMACIONES                 */
+/* ======================================= */
+
+@keyframes waveAnim {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  60% {
+    transform: scale(1.3);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.mic-zone.listening .mic-core {
+  animation: corePulse 1.3s infinite ease-in-out;
+  box-shadow: 0 14px 40px rgba(184, 55, 72, 0.28);
+}
+
+@keyframes corePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ======================================= */
+/*          RESPONSIVE PARA CELULAR        */
+/* ======================================= */
+
+@media (max-width: 680px) {
+  .ayuda-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 90px;
+  }
+
+  .ayuda-mic-section {
+    width: 200px;
+  }
+
+  .mic-zone {
+    width: 180px;
+    height: 180px;
+  }
+
+  .mic-core {
+    width: 120px;
+    height: 120px;
+  }
+
+  .mic-icon {
+    width: 65px;
+    height: 65px;
+  }
+
+  .mic-ring {
+    border-width: 3px;
+  }
+
+  .ayuda-result-box {
+    width: 92%;
+    max-width: 420px;
+    min-height: 160px;
+    padding: 22px;
+  }
+
+  .result-placeholder p {
+    font-size: 14px;
+  }
+}

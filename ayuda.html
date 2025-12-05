@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pantalla Principal - Mock</title>
+    <link rel="stylesheet" href="ayuda.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ========================= -->
+    <!-- MOBILE MENU HAMBURGUESA -->
+    <!-- ========================= -->
+    <div id="mobileMenu" class="mobile-menu hidden">
+      <button class="menu-back" onclick="closeMobileMenu()">← Volver</button>
+      <ul>
+        <li onclick="openPost()">Crear Post</li>
+        <li onclick="openPage('Talleres.html')">Talleres</li>
+        <li onclick="openPage('Notificaciones.html')">Notificaciones</li>
+        <li onclick="openPage('perfil.html')">Perfil</li>
+        <li onclick="openPage('preferencias.html')">Preferencias</li>
+        <li onclick="openPage('ayuda.html')">Ayuda</li>
+        <li onclick="openPage('tutorial.html')">Tutorial</li>
+        <li onclick="openPage('megusta.html')">Me gusta</li>
+        <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+        <li class="danger" onclick="openConfirm('delete')">Eliminar Cuenta</li>
+      </ul>
+    </div>
+
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="top-left">
+        <img
+          src="images/back.png"
+          alt="Atrás"
+          onclick="openPage('inicio.html')"
+          class="icon back"
+        />
+      </div>
+      <div class="search-area">
+        <img src="images/search.png" class="search-icon" />
+        <input id="searchInput" placeholder="Buscar..." oninput="search()" />
+        <select id="filterSelect" onchange="search()">
+          <option value="">Filtro</option>
+          <option value="musica">Música</option>
+          <option value="danza">Danza</option>
+          <option value="cocina">Cocina</option>
+          <option value="politica">Política</option>
+          <option value="historia">Historia</option>
+          <option value="deporte">Deporte</option>
+        </select>
+      </div>
+
+      <div class="top-actions">
+        <img
+          src="images/new-post.png"
+          alt="Nuevo post"
+          onclick="openPost()"
+          class="icon"
+        />
+        <img
+          src="images/school.png"
+          alt="Colegio"
+          onclick="openPage('Talleres.html')"
+          class="icon"
+        />
+        <img
+          src="images/notificaciones.png"
+          alt="Notificaciones"
+          onclick="openPage('Notificaciones.html')"
+          class="icon"
+        />
+        <img
+          id="menuHamburger"
+          src="images/menu.png"
+          class="hamburger icon"
+          onclick="openMobileMenu()"
+        />
+
+        <div class="profile-menu-container">
+          <img
+            src="images/perfil.png"
+            alt="perfil"
+            class="profile-icon"
+            onclick="toggleProfileMenu()"
+          />
+          <div id="profileMenu" class="profile-menu hidden">
+            <ul>
+              <li onclick="openPage('perfil.html')">Perfil</li>
+              <li onclick="openPage('preferencias.html')">Preferencias</li>
+              <li onclick="openPage('ayuda.html')">Ayuda</li>
+              <li onclick="openPage('tutorial.html')">Tutorial</li>
+              <li onclick="openPage('megusta.html')">Me gusta</li>
+              <li onclick="openConfirm('logout')">Cerrar Sesión</li>
+              <li class="danger" onclick="openConfirm('delete')">
+                Eliminar Cuenta
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- MAIN CONTENT -->
+    <div class="container">
+      <!-- MODALES -->
+      <!-- Crear Post -->
+      <div id="postModal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Crear Post</h3>
+          <textarea id="postText" placeholder="Escribe algo..."></textarea>
+          <input
+            type="file"
+            id="postImage"
+            accept="image/*"
+            onchange="previewImage()"
+          />
+          <div id="imagePreview" class="image-preview hidden"></div>
+          <div class="modal-actions">
+            <button onclick="closePost()">Cerrar</button>
+            <button onclick="post()">Publicar</button>
+          </div>
+        </div>
+      </div>
+      <!-- Confirmación Eliminar/Cerrar Sesión -->
+      <div class="confirm hidden">
+        <div class="confirm-content">
+          <h3 class="confirm-title"></h3>
+          <div class="confirm-actions">
+            <button class="confirm-accept">Aceptar</button>
+            <button class="confirm-cancel" onclick="closeConfirm()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="ayuda-flex">
+      <!-- Columna izquierda: micrófono -->
+      <section class="ayuda-mic-section">
+        <div
+          id="micZone"
+          class="mic-zone"
+          role="button"
+          aria-pressed="false"
+          tabindex="0"
+          onclick="toggleMic()"
+        >
+          <div class="mic-ring ring-outer"></div>
+          <div class="mic-ring ring-middle"></div>
+          <div class="mic-ring ring-inner"></div>
+
+          <div class="mic-core">
+            <img src="images/microfono.png" alt="Micrófono" class="mic-icon" />
+          </div>
+        </div>
+
+        <div id="micHint" class="mic-hint">Presiona el micrófono</div>
+      </section>
+
+      <!-- Columna derecha: resultado -->
+      <section id="resultBox" class="ayuda-result-box">
+        <div class="result-placeholder">
+          <p>Al detener la escucha aparecerá aquí el resultado.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="ayuda.js"></script>
+    <script src="ventanas.js"></script>
+  </body>
+</html>
