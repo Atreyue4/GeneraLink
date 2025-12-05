@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #e6bf8b;
   color: #333;
 }
 
@@ -27,7 +27,7 @@ body {
 .text-content h1 {
   font-size: 2.2em;
   margin-bottom: 20px;
-  color: #1a73e8;
+  color: #b83748;
 }
 
 .text-content p {
@@ -54,7 +54,7 @@ body {
   top: 20px;
   left: 20px;
   padding: 10px 20px;
-  background-color: #1a73e8;
+  background-color: #b83748;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -67,7 +67,7 @@ body {
 }
 
 .back-button:hover {
-  background-color: #1558b0;
+  background-color: #892835;
 }
 
 /* Responsivo */
