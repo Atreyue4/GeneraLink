@@ -40,13 +40,12 @@ function toggleMic() {
     // actualizar cuadro con la imagen EXACTA que indicas en el doc
     resultBox.classList.add("result-ready");
     resultBox.innerHTML = `
-      <div class="result-content" style="width:100%;">
-        <p style="margin-top:10px;color:#fffff;font-weight:600;">Para ver talleres y poder aprender mas sobre la cultura 
-        juvenil entre otras cosas de aprendizaje de cultura se le 
-        recomienda entrar con uno de los “iconos” principales
-        el cual seria:  </p>
-        <img src="images/school.png" alt="Ejemplo" />
-      </div>
+    <div class="result-content" style="width:100%;">
+    <p style="margin-top:10px; color:#ffffff; font-weight:600;">
+      Para ver talleres y poder aprender más sobre la cultura juvenil, entre otras cosas de aprendizaje de cultura, se le recomienda entrar con uno de los “iconos” principales, el cual sería:
+    </p>
+    <img src="images/school.png" alt="Ejemplo" style="width:100%; padding:50px; max-width:300px; height:auto; display:block; margin:10px auto;" />
+  </div>  
     `;
   }
 }
